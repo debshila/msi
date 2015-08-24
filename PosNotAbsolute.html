@@ -1,0 +1,355 @@
+<meta charset="UTF-8" />
+<title></title>
+<style type="text/css">body{
+    background-color: #5e6062;
+}
+h3{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+.demographics{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+.highlight-box {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border:solid 0px #98BE10;
+    background:#FCF9CE;
+    color:#333333;
+    padding:4px;
+    text-align:left;
+    font-size: 20px;
+}
+
+video{
+    margin: 20px;
+}
+
+#taskname{
+    font-weight: bold;
+}
+.instructions{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+}
+.notice{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+p{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+button {
+    visibility: hidden;
+    background-color: transparent;
+    margin-top: 10px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+#submitButton{
+    visibility: hidden;
+    background-color: transparent;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+.startButton{
+    margin-left: 20px;
+}
+.button1, .button2{
+    margin-right: 10px;
+}
+
+#demoButton {
+    margin-left: 20px;
+}
+
+.counter{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#consentForm{
+    color: #4cd2da;
+}
+
+video::-webkit-media-controls, video::media-controls{
+    display:none !important;
+}
+</style>
+<script type="text/javascript">
+    window.onload = screenBrowser;//beginTask;
+    var time0, rate;
+    var resp;
+    var trialNum=0;
+    var videos = ['2.4.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '3.1.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '2.6.mp4', '2.6.mp4', '2.6.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '3.2.mp4', '2.6.mp4', '3.1.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.4.mp4', '3.3.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '3.1.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4'];
+    var rates = [1, 1, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 2, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 1, 0.5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 2, 0.5, 2, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 0.5, 2, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 0.5, 2, 2, 2, 0.5, 0.5, 0.5, 2, 1, 1, 1, 0.5, 2, 2, 1, 1, 0.5, 2, 0.5, 2, 2, 0.5, 0.5, 2, 0.5, 0.5, 1, 0.5, 1, 1, 2, 2, 2, 1, 1, 0.5, 1, 1, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 0.5, 2, 2, 0.5, 2, 0.5, 1, 0.5, 0.5, 0.5, 2, 0.5, 0.5, 2, 0.5, 0.5, 0.5, 1, 2, 0.5, 2, 1, 1];
+    var N = videos.length;
+    var times=[];
+    data=[];//"Trial,MovieName,Rate,Response,ReactionTime\n";
+
+    var stim;
+    var browserList =["Chrome", "Safari", "Firefox","Microsoft Internet Explorer" ]; //"safari", "chrome", "firefox", "netscape"
+    var objappVersion = navigator.appVersion;
+    var objAgent = navigator.userAgent;
+    var objbrowserName  = navigator.appName;
+    var objfullVersion  = ''+parseFloat(navigator.appVersion);
+    var objBrMajorVersion = parseInt(navigator.appVersion,10);
+    var objOffsetName,objOffsetVersion,ix;
+
+
+    // In Chrome
+    if ((objOffsetVersion=objAgent.indexOf("Chrome"))!=-1) {
+        objbrowserName = "Chrome";
+        objfullVersion = objAgent.substring(objOffsetVersion+7);
+    }
+// In Microsoft internet explorer
+    else if ((objOffsetVersion=objAgent.indexOf("MSIE"))!=-1) {
+        objbrowserName = "Microsoft Internet Explorer";
+        objfullVersion = objAgent.substring(objOffsetVersion+5);
+    }
+
+// In Firefox
+    else if ((objOffsetVersion=objAgent.indexOf("Firefox"))!=-1) {
+        objbrowserName = "Firefox";
+    }
+// In Safari
+    else if ((objOffsetVersion=objAgent.indexOf("Safari"))!=-1) {
+        objbrowserName = "Safari";
+        objfullVersion = objAgent.substring(objOffsetVersion+7);
+        if ((objOffsetVersion=objAgent.indexOf("Version"))!=-1)
+            objfullVersion = objAgent.substring(objOffsetVersion+8);
+    }
+// For other browser "name/version" is at the end of userAgent
+    else if ( (objOffsetName=objAgent.lastIndexOf(' ')+1) <
+            (objOffsetVersion=objAgent.lastIndexOf('/')) )
+    {
+        objbrowserName = objAgent.substring(objOffsetName,objOffsetVersion);
+        objfullVersion = objAgent.substring(objOffsetVersion+1);
+        if (objbrowserName.toLowerCase()==objbrowserName.toUpperCase()) {
+            objbrowserName = navigator.appName;
+        }
+    }
+    // trimming the fullVersion string at semicolon/space if present
+    if ((ix=objfullVersion.indexOf(";"))!=-1)
+        objfullVersion=objfullVersion.substring(0,ix);
+    if ((ix=objfullVersion.indexOf(" "))!=-1)
+        objfullVersion=objfullVersion.substring(0,ix);
+
+    objBrMajorVersion = parseInt(''+objfullVersion,10);
+    if (isNaN(objBrMajorVersion)) {
+        objfullVersion  = ''+parseFloat(navigator.appVersion);
+        objBrMajorVersion = parseInt(navigator.appVersion,10);
+    }
+
+    function screenBrowser(){
+        //browser = window.navigator.userAgent.toLowerCase();
+        if (browserList.indexOf(objbrowserName) == -1 )
+        {
+            document.getElementById('container').style.visibility = "hidden";
+            alert('This browser is not compatible for this task. Please switch to either of ' + browserList);
+        } {
+            beginTask();
+            setupStim();
+        }
+        document.getElementById("browser").innerHTML =  "<input type='hidden' name='browser' value = " + objbrowserName + ">";
+        //return browser;
+    }
+
+    function disableButtons(){
+        document.getElementById('ba').disabled = true;
+        document.getElementById('da').disabled = true;
+        document.getElementById('ga').disabled = true;
+    }
+
+    function enableButtons(){
+        document.getElementById('ba').disabled = false;
+        document.getElementById('da').disabled = false;
+        document.getElementById('ga').disabled = false;
+    }
+
+    function setupStim(){
+        stim = document.getElementById('movie');
+        stim.addEventListener('loadeddata', function() {
+            stim.defaultPlaybackRate = rates[trialNum];
+            stim.playbackRate = rates[trialNum];
+            stim.play();
+            //console.log(stim.duration*1000, stim.duration*1000*stim.playbackRate);
+            setTimeout(enableButtons,stim.duration*(1/stim.playbackRate)*1000);
+        }, false);
+    }
+
+    function Demo(){
+        var demoVid = document.getElementById('demoVid');
+        demoVid.play();
+        document.getElementById('start').style.visibility = "visible";
+    }
+
+    function beginTask(){
+        document.getElementById('demoButton').style.visibility = "visible";
+    }
+
+    function Stimulus(trialNum, movieName,rate,response, rt) {
+        this.trialNum = trialNum;
+        this.movieName = movieName;
+        this.rate = rate;
+        this.response = response;
+        this.rt=rt;
+    }
+
+    function showOptions(){
+        document.getElementById('ba').style.visibility = "visible";
+        document.getElementById('da').style.visibility = "visible";
+        document.getElementById('ga').style.visibility = "visible";
+    }
+
+    function hideOptions(){
+        document.getElementById('ba').style.visibility = "hidden";
+        document.getElementById('da').style.visibility = "hidden";
+        document.getElementById('ga').style.visibility = "hidden";
+    }
+
+    function hideEverything(){
+        hideOptions();
+        hide('movie');
+    }
+    Stimulus.prototype.toString = function () {
+        var trial = "<input type='hidden' name='Trial_" + String(this.trialNum +1)+"'" + " value = " + (this.trialNum +1) + ">";
+        var stimulus = "<input type='hidden' name='stimulus_"+ String(this.trialNum +1)+"'" + " value = " + this.movieName + ">";
+        var playRate = "<input type='hidden' name='PlaybackRate_"+String(this.trialNum +1)+"'"+ " value = " + this.rate + ">";
+        var resp = "<input type='hidden' name='Response_"+String(this.trialNum +1)+"'"+ " value = " + this.response + ">";
+        var responseTime = "<input type='hidden' name='ReactionTime_"+String(this.trialNum +1)+"'"+" value = " + this.rt + ">";
+        var output = trial + stimulus + playRate + resp + responseTime;
+        return output
+    };
+
+    function hide(ID){
+        document.getElementById(ID).style.visibility = "hidden";
+    }
+
+    function playVideo(){
+        // hide('demoVid');
+        //hide('demoButton');
+        //hide('start');
+        document.getElementById('instructions').innerHTML = "";
+        document.getElementById('demoVideoBox').innerHTML = "";
+        //hide('instructions');
+        stim.src = "https://s3.amazonaws.com/mcgurkstimuli/" + videos[trialNum];
+        document.getElementById('p3').innerHTML = (trialNum + 1)+ ' / '+ N;
+        time0=performance.now();
+        return time0;
+    }
+
+    function choice(resp){
+        var time1 = performance.now();
+        stim.rt = Math.round(time1-time0);
+        stim.response = resp;
+        videos[trialNum] = new Stimulus(trialNum,stim.src,rate,resp,stim.rt);
+        videos[trialNum].rt = stim.rt;
+        videos[trialNum].response = stim.response;
+        videos[trialNum].movieName = stim.src;
+        videos[trialNum].rate = stim.playbackRate;
+        videos[trialNum].trial=trialNum;
+        data +=videos[trialNum];
+        document.getElementById("inputfields").innerHTML = data;
+        trialNum++;
+        if (trialNum<N){
+            disableButtons();
+            playVideo();
+            console.log(stim.playbackRate)
+        }
+        else {
+            hideOptions();
+            hide('movie');
+
+            document.getElementById('p3').innerHTML = "Thank you for your participation. In order to receive credit, please click the submit button.";
+            document.getElementById("submitButton").style.visibility = "visible";
+
+        }
+    }
+
+</script>
+<div id="container">
+    <h3 id="taskDescp">Watch 6 minutes of videos and transcribe what is said.</h3>
+
+    <div class="highlight-box" id="highlight-box">
+        <ul>
+            <li>Please accept this HIT before making any responses. Accepting the HIT after making responses can erase responses.</li>
+            <li>This HIT requires Javascript enabled latest versions of Chrome, Safari, or Internet Explorer</li>
+        </ul>
+
+        <ul>
+            <li>This task requires that you watch the video and listen to the soundtrack. Please resize the window so that it fills as much of your screen as possible and adjust the volume so that you can clearly hear the soundtrack.</li>
+        </ul>
+    </div>
+
+    <p id="consent">The results of these questions are being used for a scientific study. <a href="http://openwetware.org/wiki/Beauchamp:StudyOverviewMTurk" id="consentForm" target="_blank">Click here (opens in new window)</a> to learn more about the study details. By accepting this HIT, you are consenting to take part in the study. If you do not wish to take part, do not accept the HIT.</p>
+
+    <div class="demographics" id="demographics">
+        <p>&nbsp;</p>
+
+        <ul>
+            <li>Do you have a hearing impairment? <label for="hearYes">Yes</label><input id="hearYes" name="hear" type="radio" value="yes" /><label for="hearNo">No</label><input id="hearNo" name="hear" type="radio" value="no" /></li>
+            <li>Do you have a vision impairment (trouble seeing things even with glasses or contacts)? <label for="seeYes">Yes</label><input id="seeYes" name="see" type="radio" value="yes" /><label for="seeNo">No</label><input id="seeNo" name="see" type="radio" value="no" /></li>
+            <li>Was the first language that you learned (your native language) English? <label for="englishFirstYes">Yes</label><input id="englishFirstYes" name="englishFirst" type="radio" value="yes" /><label for="englishFirstNo">No</label><input id="englishFirstNo" name="englishFirst" type="radio" value="no" /></li>
+            <li>Are you fluent in English? <label for="fluentEnglishYes">Yes</label><input id="fluentEnglishYes" name="fluentEnglish" type="radio" value="yes" /><label for="fluentEnglishNo">No</label><input id="fluentEnglishNo" name="fluentEnglish" type="radio" value="no" /></li>
+            <li>Are you fluent in any language besides English? <label for="fluentOtherYes">Yes</label><input id="fluentOtherYes" name="fluentOther" type="radio" value="yes" /><label for="fluentOtherNo">No</label><input id="fluentOtherNo" name="fluentOther" type="radio" value="no" /></li>
+            <li>Gender: <label for="genderFemale">Female</label><input id="genderFemale" name="gender" type="radio" value="Female" /><label for="genderMale">Male</label><input id="genderMale" name="gender" type="radio" value="male" /></li>
+            <!--<label for="dnwGender">Other/Do not wish to answer</label><input id="dnwGender" name="gender" type="radio" value="DNW" />-->
+            <li>Age Range: <select name="ageRange"><option value="ZZ">Select One</option><option>18-25</option><option>26-35</option><option>36-45</option><option>46-55</option><option>56-65</option><option>66-75</option><option>over 75</option></select></li>
+            <!--<option value="DNW">Do not wish to answer</option>-->
+            <li>What state do you consider your primary residence: <select name="state"><option value="ZZ">Select One</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="XX">Other</option><option value="DNW">Do not wish to answer</option></select></li>
+        </ul>
+
+        <p>&nbsp;</p>
+    </div>
+
+    <hr id="line" />
+    <p class="instructions" id="taskname"><b>Audiovisual Task</b></p>
+
+    <p class="instructions" id="instructions">You will see videos and hear audio clips of a person saying syllables. Please watch the screen at all times. After each syllable, press a button to indicate what the person said. If you are not sure, take your best guess. Play the demo video to ensure that you can hear the actor clearly. You can play the demo video multiple times. Press the &quot;Begin Task&quot; button to start...</p>
+
+    <div id="demoVideoBox">
+        <video id="demoVid"><source src="https://s3.amazonaws.com/mcgurkstimuli/3.3.mp4" /></video>
+
+        <p><button id="demoButton" onclick="Demo()" type="button">Play Demo Video</button></p>
+
+        <p><button class="startButton" id="start" onclick="playVideo()" type="button">Begin Task</button></p>
+    </div>
+
+    <div id="taskVideoBox">
+        <video id="movie" onended="showOptions()"><source /></video>
+
+        <p class="counter" id="p3">&nbsp;</p>
+
+        <p><button class="button1" id="ba" onclick="choice('BA')" type="button">BA</button><button class="button2" id="da" onclick="choice('DA')" type="button">DA</button><button class="button3" id="ga" onclick="choice('GA')" type="button">GA</button></p>
+    </div>
+
+    <div id="inputfields">&nbsp;</div>
+
+    <div id="browser">&nbsp;</div>
+
+    <p><input id="submitButton" type="submit" /></p>
+</div>
