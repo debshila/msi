@@ -56,7 +56,6 @@ p{
 button {
     visibility: hidden;
     background-color: transparent;
-    margin-top: 10px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 30px;
     font-weight: bold;
@@ -74,8 +73,17 @@ button {
 .startButton{
     margin-left: 20px;
 }
-.button1, .button2{
+
+.button2{
+    margin-left: 10px;
     margin-right: 10px;
+}
+
+.button1, .button2, .button3{
+    display: inline-block;
+    vertical-align: top;
+    horiz-align: left;
+    margin-top: 85px;
 }
 
 #demoButton {
@@ -87,8 +95,8 @@ button {
     font-size: 30px;
     font-weight: bold;
     color: white;
-    margin-top: 10px;
-    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 #consentForm{
@@ -109,7 +117,6 @@ video::-webkit-media-controls, video::media-controls{
     var N = videos.length;
     var times=[];
     data=[];//"Trial,MovieName,Rate,Response,ReactionTime\n";
-
     var stim;
     var browserList =["Chrome", "Safari", "Firefox","Microsoft Internet Explorer" ]; //"safari", "chrome", "firefox", "netscape"
     var objappVersion = navigator.appVersion;
@@ -143,7 +150,7 @@ video::-webkit-media-controls, video::media-controls{
             objfullVersion = objAgent.substring(objOffsetVersion+8);
     }
 // For other browser "name/version" is at the end of userAgent
-    else if ( (objOffsetName=objAgent.lastIndexOf(' ')+1) <
+    else if ((objOffsetName=objAgent.lastIndexOf(' ')+1) <
             (objOffsetVersion=objAgent.lastIndexOf('/')) )
     {
         objbrowserName = objAgent.substring(objOffsetName,objOffsetVersion);
@@ -179,15 +186,22 @@ video::-webkit-media-controls, video::media-controls{
     }
 
     function disableButtons(){
+        var col = "#A9A9A9";
         document.getElementById('ba').disabled = true;
         document.getElementById('da').disabled = true;
         document.getElementById('ga').disabled = true;
+        document.getElementById('ba').style.color = col;
+        document.getElementById('da').style.color = col;
+        document.getElementById('ga').style.color = col;
     }
 
     function enableButtons(){
         document.getElementById('ba').disabled = false;
         document.getElementById('da').disabled = false;
         document.getElementById('ga').disabled = false;
+        document.getElementById('ba').style.color = "white";
+        document.getElementById('da').style.color = "white";
+        document.getElementById('ga').style.color = "white";
     }
 
     function setupStim(){
@@ -249,6 +263,11 @@ video::-webkit-media-controls, video::media-controls{
         document.getElementById(ID).style.visibility = "hidden";
     }
 
+    function delDemo(){
+        document.getElementById('demoVideoBox').outerHTML = "";
+        delete document.getElementById('demoVideoBox');
+    }
+
     function playVideo(){
         // hide('demoVid');
         //hide('demoButton');
@@ -273,26 +292,23 @@ video::-webkit-media-controls, video::media-controls{
         videos[trialNum].rate = stim.playbackRate;
         videos[trialNum].trial=trialNum;
         data +=videos[trialNum];
-        document.getElementById("inputfields").innerHTML = data;
         trialNum++;
         if (trialNum<N){
             disableButtons();
             playVideo();
-            console.log(stim.playbackRate)
         }
         else {
             hideOptions();
             hide('movie');
-
+            document.getElementById("inputfields").innerHTML = data;
             document.getElementById('p3').innerHTML = "Thank you for your participation. In order to receive credit, please click the submit button.";
             document.getElementById("submitButton").style.visibility = "visible";
-
         }
     }
 
 </script>
 <div id="container">
-    <h3 id="taskDescp">Watch 6 minutes of videos and transcribe what is said.</h3>
+    <h3 id="taskDescp">Watch 10 minutes of videos and transcribe what is said.</h3>
 
     <div class="highlight-box" id="highlight-box">
         <ul>
@@ -301,7 +317,10 @@ video::-webkit-media-controls, video::media-controls{
         </ul>
 
         <ul>
-            <li>This task requires that you watch the video and listen to the soundtrack. Please resize the window so that it fills as much of your screen as possible and adjust the volume so that you can clearly hear the soundtrack.</li>
+            <li>
+                This task requires that you watch the video and listen to the soundtrack.
+                Please resize the window so that it fills as much of your screen as possible and adjust the volume so that you can clearly hear the soundtrack.
+            </li>
         </ul>
     </div>
 
@@ -329,7 +348,10 @@ video::-webkit-media-controls, video::media-controls{
     <hr id="line" />
     <p class="instructions" id="taskname"><b>Audiovisual Task</b></p>
 
-    <p class="instructions" id="instructions">You will see videos and hear audio clips of a person saying syllables. Please watch the screen at all times. After each syllable, press a button to indicate what the person said. If you are not sure, take your best guess. Play the demo video to ensure that you can hear the actor clearly. You can play the demo video multiple times. Press the &quot;Begin Task&quot; button to start...</p>
+    <p class="instructions" id="instructions">You will see videos and hear audio clips of a person saying syllables. Please watch the screen at all times.
+        After each video, press a button to indicate what the person said. If you are not sure, take your best guess. You can only press the buttons when they are not greyed out.
+        Play the demo video to ensure that you can hear the actor clearly. You can play the demo video multiple times.
+        Press the &quot;Begin Task&quot; button to start...</p>
 
     <div id="demoVideoBox">
         <video id="demoVid"><source src="https://s3.amazonaws.com/mcgurkstimuli/3.3.mp4" /></video>
@@ -340,12 +362,24 @@ video::-webkit-media-controls, video::media-controls{
     </div>
 
     <div id="taskVideoBox">
-        <video id="movie" onended="showOptions()"><source /></video>
 
-        <p class="counter" id="p3">&nbsp;</p>
+        <table><tr>
+            <td width="640px">
+                <video id="movie" onended="showOptions()" height="480px"><source /></video>
+            </td>
+            <td valign="top">
+                <p class="counter" id="p3"> </p>
+                <p>
+                    <button class="button1" id="ba" onclick="choice('BA')" type="button">BA</button>
+                    <button class="button2" id="da" onclick="choice('DA')" type="button">DA</button>
+                    <button class="button3" id="ga" onclick="choice('GA')" type="button">GA</button>
+                </p>
+            </td>
+        </tr></table>
 
-        <p><button class="button1" id="ba" onclick="choice('BA')" type="button">BA</button><button class="button2" id="da" onclick="choice('DA')" type="button">DA</button><button class="button3" id="ga" onclick="choice('GA')" type="button">GA</button></p>
+
     </div>
+
 
     <div id="inputfields">&nbsp;</div>
 
