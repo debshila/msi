@@ -106,19 +106,27 @@ button {
 video::-webkit-media-controls, video::media-controls{
     display:none !important;
 }
+
+#buttonCounter{
+    vertical-align:top;
+}
+
+
+
 </style>
+
 <script type="text/javascript">
     window.onload = screenBrowser;//beginTask;
     var time0, rate;
     var resp;
     var trialNum=0;
-    var videos = ['2.4.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '3.1.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '2.6.mp4', '2.6.mp4', '2.6.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '3.2.mp4', '2.6.mp4', '3.1.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.4.mp4', '3.3.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '3.1.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4'];
-    var rates = [1, 1, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 2, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 1, 0.5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 2, 0.5, 2, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 0.5, 2, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 0.5, 2, 2, 2, 0.5, 0.5, 0.5, 2, 1, 1, 1, 0.5, 2, 2, 1, 1, 0.5, 2, 0.5, 2, 2, 0.5, 0.5, 2, 0.5, 0.5, 1, 0.5, 1, 1, 2, 2, 2, 1, 1, 0.5, 1, 1, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 0.5, 2, 2, 0.5, 2, 0.5, 1, 0.5, 0.5, 0.5, 2, 0.5, 0.5, 2, 0.5, 0.5, 0.5, 1, 2, 0.5, 2, 1, 1];
+    var videos = ['2.4.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '3.1.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '2.6.mp4'];//, '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.2.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '3.1.mp4', '2.4.mp4', '2.2.mp4', '2.6.mp4', '2.2.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '2.4.mp4', '2.2.mp4', '2.8.mp4', '2.6.mp4', '2.6.mp4', '2.6.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.2.mp4', '2.2.mp4', '3.2.mp4', '2.6.mp4', '3.1.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '3.3.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.4.mp4', '2.6.mp4', '2.2.mp4', '2.8.mp4', '2.4.mp4', '2.6.mp4', '2.6.mp4', '3.3.mp4', '3.2.mp4', '2.4.mp4', '3.3.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '2.6.mp4', '2.4.mp4', '2.6.mp4', '2.4.mp4', '2.4.mp4', '2.8.mp4', '2.8.mp4', '2.2.mp4', '2.2.mp4', '2.2.mp4', '3.1.mp4', '2.8.mp4', '2.8.mp4', '3.1.mp4'];
+    var rates = [2, 2, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1];//, 1, 0.5, 0.5, 1, 2, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 1, 0.5, 1, 2, 2, 1, 2, 1, 1, 2, 2, 2, 0.5, 2, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 0.5, 2, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 0.5, 2, 0.5, 0.5, 2, 2, 2, 0.5, 0.5, 0.5, 2, 1, 1, 1, 0.5, 2, 2, 1, 1, 0.5, 2, 0.5, 2, 2, 0.5, 0.5, 2, 0.5, 0.5, 1, 0.5, 1, 1, 2, 2, 2, 1, 1, 0.5, 1, 1, 0.5, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 0.5, 2, 2, 0.5, 2, 0.5, 1, 0.5, 0.5, 0.5, 2, 0.5, 0.5, 2, 0.5, 0.5, 0.5, 1, 2, 0.5, 2, 1, 1];
     var N = videos.length;
     var times=[];
     data=[];//"Trial,MovieName,Rate,Response,ReactionTime\n";
     var stim;
-    var browserList =["Chrome", "Safari", "Firefox","Microsoft Internet Explorer" ]; //"safari", "chrome", "firefox", "netscape"
+    var browserList =["Chrome", "Safari", "Microsoft Internet Explorer", "Netscape"]; //screen out firefox users
     var objappVersion = navigator.appVersion;
     var objAgent = navigator.userAgent;
     var objbrowserName  = navigator.appName;
@@ -141,6 +149,7 @@ video::-webkit-media-controls, video::media-controls{
 // In Firefox
     else if ((objOffsetVersion=objAgent.indexOf("Firefox"))!=-1) {
         objbrowserName = "Firefox";
+        objfullVersion = objAgent.substring(objOffsetVersion+5);
     }
 // In Safari
     else if ((objOffsetVersion=objAgent.indexOf("Safari"))!=-1) {
@@ -182,7 +191,6 @@ video::-webkit-media-controls, video::media-controls{
             setupStim();
         }
         document.getElementById("browser").innerHTML =  "<input type='hidden' name='browser' value = " + objbrowserName + ">";
-        //return browser;
     }
 
     function disableButtons(){
@@ -210,7 +218,6 @@ video::-webkit-media-controls, video::media-controls{
             stim.defaultPlaybackRate = rates[trialNum];
             stim.playbackRate = rates[trialNum];
             stim.play();
-            //console.log(stim.duration*1000, stim.duration*1000*stim.playbackRate);
             setTimeout(enableButtons,stim.duration*(1/stim.playbackRate)*1000);
         }, false);
     }
@@ -263,23 +270,16 @@ video::-webkit-media-controls, video::media-controls{
         document.getElementById(ID).style.visibility = "hidden";
     }
 
-    function delDemo(){
-        document.getElementById('demoVideoBox').outerHTML = "";
-        delete document.getElementById('demoVideoBox');
-    }
 
     function playVideo(){
-        // hide('demoVid');
-        //hide('demoButton');
-        //hide('start');
         document.getElementById('instructions').innerHTML = "";
         document.getElementById('demoVideoBox').innerHTML = "";
-        //hide('instructions');
         stim.src = "https://s3.amazonaws.com/mcgurkstimuli/" + videos[trialNum];
         document.getElementById('p3').innerHTML = (trialNum + 1)+ ' / '+ N;
         time0=performance.now();
         return time0;
     }
+
 
     function choice(resp){
         var time1 = performance.now();
@@ -313,7 +313,7 @@ video::-webkit-media-controls, video::media-controls{
     <div class="highlight-box" id="highlight-box">
         <ul>
             <li>Please accept this HIT before making any responses. Accepting the HIT after making responses can erase responses.</li>
-            <li>This HIT requires Javascript enabled latest versions of Chrome, Safari, or Internet Explorer</li>
+            <li>This HIT requires Javascript enabled latest versions of Chrome, Safari, or Internet Explorer.</li>
         </ul>
 
         <ul>
@@ -321,6 +321,9 @@ video::-webkit-media-controls, video::media-controls{
                 This task requires that you watch the video and listen to the soundtrack.
                 Please resize the window so that it fills as much of your screen as possible and adjust the volume so that you can clearly hear the soundtrack.
             </li>
+        </ul>
+        <ul>
+            <li>Although on average this task takes about 20 minutes to complete, the task will not expire for an hour. We are offering $3.00 to complete the task. </li>
         </ul>
     </div>
 
@@ -332,7 +335,7 @@ video::-webkit-media-controls, video::media-controls{
         <ul>
             <li>Do you have a hearing impairment? <label for="hearYes">Yes</label><input id="hearYes" name="hear" type="radio" value="yes" /><label for="hearNo">No</label><input id="hearNo" name="hear" type="radio" value="no" /></li>
             <li>Do you have a vision impairment (trouble seeing things even with glasses or contacts)? <label for="seeYes">Yes</label><input id="seeYes" name="see" type="radio" value="yes" /><label for="seeNo">No</label><input id="seeNo" name="see" type="radio" value="no" /></li>
-            <li>Was the first language that you learned (your native language) English? <label for="englishFirstYes">Yes</label><input id="englishFirstYes" name="englishFirst" type="radio" value="yes" /><label for="englishFirstNo">No</label><input id="englishFirstNo" name="englishFirst" type="radio" value="no" /></li>
+            <li>Was English the first language that you learned (your native language)? <label for="englishFirstYes">Yes</label><input id="englishFirstYes" name="englishFirst" type="radio" value="yes" /><label for="englishFirstNo">No</label><input id="englishFirstNo" name="englishFirst" type="radio" value="no" /></li>
             <li>Are you fluent in English? <label for="fluentEnglishYes">Yes</label><input id="fluentEnglishYes" name="fluentEnglish" type="radio" value="yes" /><label for="fluentEnglishNo">No</label><input id="fluentEnglishNo" name="fluentEnglish" type="radio" value="no" /></li>
             <li>Are you fluent in any language besides English? <label for="fluentOtherYes">Yes</label><input id="fluentOtherYes" name="fluentOther" type="radio" value="yes" /><label for="fluentOtherNo">No</label><input id="fluentOtherNo" name="fluentOther" type="radio" value="no" /></li>
             <li>Gender: <label for="genderFemale">Female</label><input id="genderFemale" name="gender" type="radio" value="Female" /><label for="genderMale">Male</label><input id="genderMale" name="gender" type="radio" value="male" /></li>
@@ -350,30 +353,38 @@ video::-webkit-media-controls, video::media-controls{
 
     <p class="instructions" id="instructions">You will see videos and hear audio clips of a person saying syllables. Please watch the screen at all times.
         After each video, press a button to indicate what the person said. If you are not sure, take your best guess. You can only press the buttons when they are not greyed out.
-        Play the demo video to ensure that you can hear the actor clearly. You can play the demo video multiple times.
-        Press the &quot;Begin Task&quot; button to start...</p>
+        <br>Play the demo video to ensure that you can hear the actor and see the actors' entire face clearly. You can play the demo video multiple times.
+        <br>Press the &quot;Begin Task&quot; button to start...</p>
 
     <div id="demoVideoBox">
-        <video id="demoVid"><source src="https://s3.amazonaws.com/mcgurkstimuli/3.3.mp4" /></video>
-
-        <p><button id="demoButton" onclick="Demo()" type="button">Play Demo Video</button></p>
-
-        <p><button class="startButton" id="start" onclick="playVideo()" type="button">Begin Task</button></p>
+        <table width = "1000px" height = "500px"><tr>
+            <td width="640px">
+                <video id="demoVid" width = "640px" height = "480px"><source src="https://s3.amazonaws.com/mcgurkstimuli/3.3.mp4" /></video>
+            </td>
+            <td>
+                <p>Please accept HIT before playing the demo.
+                    <br>If you can see the entire face of the actor, click the "Play Demo Video" button below.
+                </p>
+                <p><button id="demoButton" onclick="Demo()" type="button">Play Demo Video</button></p>
+                <p><button class="startButton" id="start" onclick="playVideo()" type="button">Begin Task</button></p>
+            </td>
+        </tr></table>
     </div>
 
     <div id="taskVideoBox">
 
-        <table><tr>
+        <table width = "1000px" height = "500px"><tr>
             <td width="640px">
-                <video id="movie" onended="showOptions()" height="480px"><source /></video>
+                <video id="movie" poster = "https://s3.amazonaws.com/mcgurkstimuli/greyBox.png" onended="showOptions()" width = "640px" height="480px"><source /></video>
             </td>
-            <td valign="top">
+            <td id = "buttonCounter">
                 <p class="counter" id="p3"> </p>
                 <p>
                     <button class="button1" id="ba" onclick="choice('BA')" type="button">BA</button>
                     <button class="button2" id="da" onclick="choice('DA')" type="button">DA</button>
                     <button class="button3" id="ga" onclick="choice('GA')" type="button">GA</button>
                 </p>
+                <p><input id="submitButton" type="submit" /></p>
             </td>
         </tr></table>
 
@@ -385,5 +396,5 @@ video::-webkit-media-controls, video::media-controls{
 
     <div id="browser">&nbsp;</div>
 
-    <p><input id="submitButton" type="submit" /></p>
+
 </div>
