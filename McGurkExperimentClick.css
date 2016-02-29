@@ -1,0 +1,111 @@
+body{
+     background-color: #5e6062;
+}
+
+h3{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+.demographics{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+.highlight-box {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border:solid 0px #98BE10;
+    background:#FCF9CE;
+    color:#333333;
+    padding:4px;
+    text-align:left;
+    font-size: 20px;
+}
+
+video{
+    margin: 20px;
+}
+
+#taskname{
+    font-weight: bold;
+}
+.instructions{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+}
+.notice{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+p{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+button {
+    visibility: hidden;
+    background-color: transparent;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+#submitButton{
+    visibility: hidden;
+    background-color: transparent;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+.startButton{
+    margin-left: 20px;
+}
+
+.button2{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button1, .button2, .button3{
+    display: inline-block;
+    vertical-align: top;
+    horiz-align: left;
+    margin-top: 85px;
+}
+
+#demoButton {
+    margin-left: 20px;
+}
+
+.counter{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#consentForm{
+    color: #4cd2da;
+}
+
+video::-webkit-media-controls, video::media-controls{
+    display:none !important;
+}
+
+#buttonCounter{
+    vertical-align:top;
+}

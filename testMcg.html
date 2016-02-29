@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel = "stylesheet" type="text/css" href="McGurkExperimentClick.css">
+<script type="text/javascript">
+ window.onload = test;
+ /*
+ var stimArr = {};
+
+    function test(){
+        stimArr = {
+           congruent: String(document.getElementById('cong').value).split(','),
+           congReps: parseInt(document.getElementById('cReps').value)
+        };
+            // mcgurk: document.getElementById('mcg').value,
+           // mcgReps: parseInt(document.getElementById('mRep').value)
+        console.log(stimArr["congruent"]);
+        console.log(stimArr["congReps"]);
+        return stimArr;
+
+    }
+
+*/
+var allStim = test();
+var congruent = allStim[0];
+console.log(congruent);
+ function test(){
+         var congruent = document.getElementById('cong').value;
+         var congReps = parseInt(document.getElementById('cReps').value);
+     return [congruent, congReps];
+ }
+
+    console.log(test());
+
+    //var x = String(document.getElementById('cong').innerHTML);
+    //console.log(x);
+     //stimArr = new Object();
+/*
+    function test(){
+        //var cong = document.getElementById('cong').value;
+        var stimArr = {congruent:document.getElementById('cong').value};
+        console.log(stimArr['congruent'].split(','));
+    }
+/*
+   function generateStimuli(stim, reps, mainArray){
+        for(var i =0; i<stim.length; i++){
+            for(var j = 0; j<reps; j++){
+                mainArray.push(stim[i] + '.mp4');//[j] =
+            }
+        }
+    }
+
+
+    var congruent = ['3.1.mp4', '3.2.mp4', '3.3.mp4'];
+
+    m1 = ${movie1};
+
+
+    var mcgurk = ['2.1.mp4', '2.2.mp4', '2.3.mp4', '2.4.mp4'];
+    var mcgReps = 9;
+    var congReps = 3;
+    var videos = [];
+    tmp = [];
+    mcgTmp = [];
+
+//to randomly arrange stimuli
+function shuffle(X) {
+    var N = X.length - 1;
+    var t = 0;
+    for (var i = N; i > 0; i--) {
+        var r = Math.floor(( i + 1) * Math.random());
+//r is random integer from 0 to i;
+// swap the ith element with the rth element;
+        t = X[r];
+        X[r] = X[i];
+        X[i] = t;
+    }
+    return X
+}
+
+
+for(var i =0; i<congruent.length; i++){
+       for(var j = 0; j<congReps; j++){
+           tmp.push(congruent[i]);
+       }
+}
+
+tmp = shuffle(tmp);
+
+
+for(var b = 0; b<mcgReps; b++){
+    for(var a =0; a<mcgurk.length; a++){
+        mcgTmp.push(mcgurk[a]);
+    }
+    mcgTmp.push(tmp[b]);
+}
+
+
+for(var c = 0; c<mcgTmp.length;c+=5){
+    videos.push(shuffle(mcgTmp.slice(c, c+5)));
+
+}
+
+videos = [].concat.apply([], videos);
+
+//Remove temporary variables
+delete tmp;
+delete mcgTmp;
+
+
+
+/*
+for(var k = 0; k<= videos.length; k = k + 4){
+    videos.push(tmp[k]);
+//    vid = videos[i];
+//    for(var l = 0; l<tmp.length; tmp++){
+//        videos.splice(k, 0, tmp[l])
+//    }
+}
+console.log(videos);
+
+//cong = shuffle(generateStimuli(stim = congruent, reps = congReps, mainArray = tmp));
+//console.log(tmp);
+/*
+
+    for(var i = 0; i<mcgReps; i++) {
+        for (var j = 0; j < congReps; j++) {
+            videos.push(mcgurk +'.mp4' + ',' + tmp[j] + '.mp4');
+        }
+    }
+
+    console.log(videos);
+*/
+console.log(stimArr.toSource());
+</script>
+<head>
+
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!---->
+<form action = "" method="post">
+    <input id = "cong" type="text" style = "display:none" value = "2,3,4" />
+    <input id = "cReps" type="text" style = "display:none" value = "1" />
+</form>
+
+</body>
+</html>
