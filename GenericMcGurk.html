@@ -3,17 +3,24 @@
 
 <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/mcgurkstimuli/McGurkExperimentClick.css">
 <!--
-<script src ="https://s3.amazonaws.com/mcgurkstimuli/McGurkFunctions.js"></script>
--->
 
 <script src ="McGurkFunctions_cleaned.js"></script>
-
-<form method="post" action="https://workersandbox.mturk.com/mturk/externalSubmit">
-    <input id = "cong" name = "cong" style = "display:none" value="3.1.mp4,3.2.mp4,3.3.mp4"> </input>
-    <input id = "mcg" name = "mcg" style = "display:none" value="2.1.mp4,2.2.mp4,2.3.mp4,2.4.mp4"> </input>
-    <input id = "cRep" name = "cRep" style = "display:none" value="3"> </input>
-    <input id = "mRep" name="mRep" style = "display:none" value="9"> </input>
+<form action="https://workersandbox.mturk.com/mturk/externalSubmit" method="post">
+    <input id = "cong" name = "cong" style = "display:none" value="3.1.mp4,3.2.mp4,3.3.mp4">
+    <input id = "mcg" name = "mcg" style = "display:none" value="2.1.mp4,2.2.mp4,2.3.mp4,2.4.mp4">
+    <input id = "cRep" name = "cRep" style = "display:none" value="3">
+    <input id = "mRep" name="mRep" style = "display:none" value="9">
 </form>
+-->
+
+<script src ="https://s3.amazonaws.com/mcgurkstimuli/McGurkFunctions_cleaned.js"></script>
+
+
+<input id = "cong" name = "cong" style = "display:none" value="${cong}" />
+<input id = "mcg" name = "mcg" style = "display:none" value="${mcg}" />
+<input id = "cRep" name = "cRep" style = "display:none" value="${cRep}" />
+<input id = "mRep" name="mRep" style = "display:none" value="${mRep}" />
+
 
 <div id="container">
     <h3 id="taskDescp">Watch 10 minutes of videos and transcribe what is said.</h3>
@@ -96,7 +103,7 @@
                     <button class="button2" id="da" onclick="choice('DA')" type="button">DA / THA</button>
                     <button class="button3" id="ga" onclick="choice('GA')" type="button">GA</button>
                 </p>
-               <p><input type="submit" id="submitButton" name="submitButton"/></p>
+               <p><input type="submit" id="submitButton"/></p>
             </td>
         </tr></table>
 
