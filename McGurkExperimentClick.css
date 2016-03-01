@@ -78,11 +78,11 @@ button {
     display: inline-block;
     vertical-align: middle;
     horiz-align: left;
-
+    width: 110px;
     /*
         margin-top: 85px;
         margin-left: 10px;
-        width: 60px;
+
         height: 40px;
     */
 }
