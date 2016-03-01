@@ -73,17 +73,20 @@ button {
     margin-left: 20px;
 }
 
-.button2{
-    margin-left: 10px;
-    margin-right: 10px;
+.button1, .button2, .button3{
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    horiz-align: left;
+
+    /*
+        margin-top: 85px;
+        margin-left: 10px;
+        width: 60px;
+        height: 40px;
+    */
 }
 
-.button1, .button2, .button3{
-    display: inline-block;
-    vertical-align: top;
-    horiz-align: left;
-    margin-top: 85px;
-}
 
 #demoButton {
     margin-left: 20px;
