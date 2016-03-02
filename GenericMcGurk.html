@@ -10,14 +10,15 @@
 <input id = "mcg" name = "mcg" style = "display:none" value="${mcg}" />
 <input id = "cRep" name = "cRep" style = "display:none" value="${cRep}" />
 <input id = "mRep" name="mRep" style = "display:none" value="${mRep}" />
-
 </form>
+Although on average this task takes about ${time} minutes to complete, the task will not expire for an hour. We are offering ${money} to complete the task.
+Replace all the variables in this script with ${variable name}
 -->
 <link rel="stylesheet" type="text/css" href="McGurkExperimentClick.css">
 <script src ="McGurkFunctions_cleaned.js"></script>
 
 <input id = "cong" name = "cong" style = "display:none" value="3.1.mp4,3.2.mp4,3.3.mp4">
-<input id = "mcg" name = "mcg" style = "display:none" value="1.1.mp4">
+<input id = "mcg" name = "mcg" style = "display:none" value="1.18.mp4,1.19.mp4">
 <input id = "cRep" name = "cRep" style = "display:none" value="3">
 <input id = "mRep" name="mRep" style = "display:none" value="9">
 
@@ -70,7 +71,8 @@
         <br>Press the &quot;Begin Task&quot; button to start...</p>
 
     <div id="demoVideoBox">
-        <table width = "1000px" height = "500px"><tr>
+        <table width = "1000px" height = "500px">
+            <tr>
             <td width="640px">
                 <video id="demoVid" width = "640px" height = "480px"><source src="https://s3.amazonaws.com/mcgurkstimuli/3.3.mp4" /></video>
             </td>
@@ -86,9 +88,10 @@
 
     <div id="taskVideoBox">
 
-        <table width = "1000px" height = "500px"><tr>
+        <table width = "1000px">
+            <tr>
             <td width="640px">
-                <video id="movie" poster = "https://s3.amazonaws.com/mcgurkstimuli/greyBox.png" onended="showOptions()" width = "640px" height="480px"><source /></video>
+                <video id="movie" onended="showOptions()" width = "640px" height="480px"><source /></video>
             </td>
             <td id = "buttonCounter">
                 <p class="counter" id="p3"> </p>

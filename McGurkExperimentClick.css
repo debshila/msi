@@ -1,5 +1,5 @@
 body{
-     background-color: #5e6062;
+     background-color: #606160;
 }
 
 h3{
@@ -74,11 +74,10 @@ button {
 }
 
 .button1, .button2, .button3{
-    font-size: 20px;
     display: inline-block;
     vertical-align: middle;
     horiz-align: left;
-    width: 110px;
+    width: 175px;
     /*
         margin-top: 85px;
         margin-left: 10px;

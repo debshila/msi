@@ -123,7 +123,7 @@ function Demo(){
 
 function beginTask(){
     document.getElementById('demoButton').style.visibility = "visible";
-}
+    }
 
 function Stimulus(trialNum, movieName,response, rt) {
     this.trialNum = trialNum;
@@ -170,6 +170,8 @@ function playVideo(){
     stim = document.getElementById('movie');
     stim.src = "https://s3.amazonaws.com/mcgurkstimuli/" + videos[trialNum];
     document.getElementById('p3').innerHTML = (trialNum + 1)+ ' / '+ N;
+    showOptions();
+    disableButtons();
     stim.addEventListener('loadeddata', function() {
         stim.play();
         setTimeout(enableButtons,stim.duration*1000);
