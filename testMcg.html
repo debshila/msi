@@ -3,7 +3,7 @@
 
 <link rel = "stylesheet" type="text/css" href="McGurkExperimentClick.css">
 <script type="text/javascript">
- window.onload = test;
+ window.onload = newStimArr();
  /*
  var stimArr = {};
 
@@ -21,7 +21,22 @@
     }
 
 */
-var allStim = test();
+
+ function newStimArr(){
+     var cong = String(document.getElementById('cong').value).split(',');
+     //var mcg = String(document.getElementById('mcg').value).split(',');
+ //    var cRep = parseInt(document.getElementById('cRep').value);
+//     var mRep = parseInt(document.getElementById('mRep').value);
+//     return [cong, mcg, cRep, mRep];
+     return [cong];
+ }
+
+ for(var i =0; i<100; i++){
+     console.log(newStimArr().length);
+
+ }
+
+var allStim = newStimArr();
 var congruent = allStim[0];
 console.log(congruent);
  function test(){
@@ -143,7 +158,7 @@ console.log(stimArr.toSource());
 <!---->
 <form action = "" method="post">
     <input id = "cong" type="text" style = "display:none" value = "2,3,4" />
-    <input id = "cReps" type="text" style = "display:none" value = "1" />
+    <input id = "cReps" type="text" style = "display:none" value = "3" />
 </form>
 
 </body>

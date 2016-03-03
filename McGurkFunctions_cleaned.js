@@ -5,8 +5,8 @@
 var time0;
 var resp;
 var trialNum=0;
-var videos = [];
-
+var videos;
+var N;
 data=[];
 var stim;
 window.onload = beginTask;
@@ -20,7 +20,7 @@ function generateVideos() {
     var mcgurk = allStim[1];
     var congReps = allStim[2];
     var mcgReps = allStim[3];
-
+    videos = [];
     for(var i = 0; i < congruent.length; i++){
         for(var j = 0; j<congReps; j++){
             tmp.push(congruent[i]);
@@ -45,11 +45,9 @@ function generateVideos() {
 
 //Flattening array of arrays
     videos = [].concat.apply([], videos);
-    return videos;
+    //return videos;
 }
 
-
-var N;
 
 function checkLoaded() {
     return document.readyState === "complete";
@@ -116,9 +114,7 @@ function Demo(){
     demoVid.play();
     generateVideos();
     document.getElementById('start').style.visibility = "visible";
-    newStimArr();
     N = videos.length;
-    return N;
 }
 
 function beginTask(){
